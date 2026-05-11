@@ -1,0 +1,125 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Body */
+body {
+  background-color: #050816;
+  color: white;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+/* Header */
+.header {
+  padding: 20px;
+  text-align: center;
+}
+
+.logo h1 {
+  font-size: 3rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: linear-gradient(135deg, rgba(7, 17, 31, 1), rgba(5, 8, 22, 1));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero-text h2 {
+  font-size: 3.5rem;
+  color: #fff;
+}
+
+.hero-text p {
+  font-size: 1.5rem;
+  color: #e2e2e2;
+  margin-top: 10px;
+}
+
+/* Glowing Particles */
+.hero::after {
+  content: '';
+  background: url('https://www.transparenttextures.com/patterns/fancy-grid-2.png') repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  animation: glowingParticles 1.5s infinite alternate;
+}
+
+@keyframes glowingParticles {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.8; }
+}
+
+/* Service Section */
+.services {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 0;
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 40px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  width: 25%;
+}
+
+.service-card h3 {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.service-card p {
+  color: #e2e2e2;
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* Footer */
+.footer {
+  background-color: #07111f;
+  padding: 20px;
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 2rem;
+}
+
+.social-icons svg {
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.social-icons svg:hover {
+  color: #00f0ff; /* Cyan */
+}
+
+/* Scroll Smooth */
+html {
+  scroll-behavior: smooth;
+}
