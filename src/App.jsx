@@ -143,13 +143,15 @@
 
 import './App.css';
 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+
 
 import HomePage from './pages/HomePage/HomePage';
 import ServicePage from './pages/ServicePage/ServicePage';
 import DigitalMarketing from './pages/DigitalMarketing/DigitalMarketing';
 import About from './pages/About/About';
 import CaseStudies from './pages/CaseStudies/CaseStudies';
+import Contact from './pages/Contact/Contact';
 
 function App() {
   return (
@@ -164,6 +166,8 @@ function App() {
       <Route path="/About" element={<About />} />
 
       <Route path="/CaseStudies" element={<CaseStudies />} />
+
+      <Route path="/Contact" element={<Contact />} />
 
     </Routes>
   );

@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from "react-router-dom";
 import './Sections.css';
+
 
 /* ── Scroll animation hook ── */
 const useScrollReveal = (ref) => {
@@ -52,12 +54,13 @@ export const CaseStudies = () => {
             Results that <span>speak loudly</span>
           </h2>
         </div>
-        <a href="#" className="btn-ghost fade-in">
+        <Link to="/CaseStudies" className="btn-ghost fade-in">
           All case studies
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-        </a>
+        {/* </a> */}
+        </Link>
       </div>
 
       <div className="cases-grid">
@@ -138,12 +141,13 @@ export const CTASection = () => {
           digital presence and map out a clear path to measurable growth.
         </p>
         <div className="cta-actions fade-in">
-          <a href="#contact" className="btn-primary">
+          <Link to="/contact" className="btn-primary">
             <span>Book Free Strategy Call</span>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-          </a>
+          {/* </a> */}
+          </Link>
           <a href="#work" className="btn-ghost">See our results</a>
         </div>
       </div>
@@ -152,48 +156,164 @@ export const CTASection = () => {
 };
 
 /* ── Footer ── */
-export const Footer = () => (
-  <footer className="footer">
-    <div className="footer-top">
-      <div className="footer-brand">
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+// export const Footer = () => (
+//   <footer className="footer">
+//     <div className="footer-top">
+//       <div className="footer-brand">
+//         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+//           <div style={{
+//             width: 36, height: 36, borderRadius: 8,
+//             background: 'linear-gradient(135deg, #2563EB, #F59E0B)',
+//             display: 'flex', alignItems: 'center', justifyContent: 'center',
+//             fontFamily: 'Syne, sans-serif', fontWeight: 800, color: 'white', fontSize: '1rem'
+//           }}>T</div>
+//           <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.1rem', color: 'var(--text-primary)' }}>
+//             Tecloudex
+//           </span>
+//         </div>
+//         <p>
+//           A digital transformation partner for growth-stage companies
+//           ready to dominate their category online.
+//         </p>
+//       </div>
+
+//       {[
+//         { title: 'Services', 
+//             links: [
+//                 'Performance Marketing', 'SEO & Content', 'Web Development', 'Brand Identity', 'AI & Automation', 'Analytics'] },
+//         { title: 'Company', links: ['About Us', 'Case Studies', 'Blog & Insights', 'Careers', 'Press'] },
+//         { title: 'Contact', links: ['hello@tecloudex.com', '+91 98765 43210', 'Chennai, IN', 'Book a Call'] },
+//       ].map(col => (
+//         <div className="footer-col" key={col.title}>
+//           <h4>{col.title}</h4>
+//           <ul>
+//             {col.links.map(l => <li key={l}><a href="#">{l}</a></li>)}
+//           </ul>
+//         </div>
+//       ))}
+//     </div>
+
+//     <div className="footer-bottom">
+//       <p>© 2026 Tecloudex Digital. All rights reserved.</p>
+//       <div className="footer-socials">
+//         {['𝕏', 'in', 'ig', 'yt'].map(s => (
+//           <a key={s} href="#" className="social-link">{s}</a>
+//         ))}
+//       </div>
+//     </div>
+//   </footer>
+// );
+
+export const Footer = () => {
+
+  const footerData = [
+    {
+      title: 'Services',
+      links: [
+        { name: 'Performance Marketing', path: '/services' },
+        { name: 'SEO & Content', path: '/services' },
+        { name: 'Web Development', path: '/services' },
+        { name: 'Brand Identity', path: '/services' },
+        { name: 'AI & Automation', path: '/services' },
+        { name: 'Analytics', path: '/services' },
+      ]
+    },
+    {
+      title: 'Company',
+      links: [
+        { name: 'About Us', path: '/about' },
+        { name: 'Case Studies', path: '/CaseStudies' },
+        { name: 'Blog & Insights' },
+        { name: 'Careers'},
+        { name: 'Press'},
+      ]
+    },
+    {
+      title: 'Contact',
+      links: [
+        { name: 'hello@tecloudex.com', path: '#' },
+        { name: '+91 98765 43210', path: '#' },
+        { name: 'Chennai, IN', path: '#' },
+        { name: 'Book a Call', path: '/contact' },
+      ]
+    }
+  ];
+
+  return (
+    <footer className="footer">
+      <div className="footer-top">
+
+        <div className="footer-brand">
           <div style={{
-            width: 36, height: 36, borderRadius: 8,
-            background: 'linear-gradient(135deg, #2563EB, #F59E0B)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontFamily: 'Syne, sans-serif', fontWeight: 800, color: 'white', fontSize: '1rem'
-          }}>T</div>
-          <span style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.1rem', color: 'var(--text-primary)' }}>
-            Tecloudex
-          </span>
-        </div>
-        <p>
-          A digital transformation partner for growth-stage companies
-          ready to dominate their category online.
-        </p>
-      </div>
+            display: 'flex',
+            alignItems: 'center',
+            gap: 10
+          }}>
+            <div style={{
+              width: 36,
+              height: 36,
+              borderRadius: 8,
+              background: 'linear-gradient(135deg, #2563EB, #F59E0B)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontFamily: 'Syne, sans-serif',
+              fontWeight: 800,
+              color: 'white',
+              fontSize: '1rem'
+            }}>
+              T
+            </div>
 
-      {[
-        { title: 'Services', links: ['Performance Marketing', 'SEO & Content', 'Web Development', 'Brand Identity', 'AI & Automation', 'Analytics'] },
-        { title: 'Company', links: ['About Us', 'Case Studies', 'Blog & Insights', 'Careers', 'Press'] },
-        { title: 'Contact', links: ['hello@tecloudex.com', '+91 98765 43210', 'Coimbatore, IN', 'Book a Call'] },
-      ].map(col => (
-        <div className="footer-col" key={col.title}>
-          <h4>{col.title}</h4>
-          <ul>
-            {col.links.map(l => <li key={l}><a href="#">{l}</a></li>)}
-          </ul>
-        </div>
-      ))}
-    </div>
+            <span style={{
+              fontFamily: 'Syne, sans-serif',
+              fontWeight: 800,
+              fontSize: '1.1rem',
+              color: 'var(--text-primary)'
+            }}>
+              Tecloudex
+            </span>
+          </div>
 
-    <div className="footer-bottom">
-      <p>© 2026 Tecloudex Digital. All rights reserved.</p>
-      <div className="footer-socials">
-        {['𝕏', 'in', 'ig', 'yt'].map(s => (
-          <a key={s} href="#" className="social-link">{s}</a>
+          <p>
+            A digital transformation partner for growth-stage companies
+            ready to dominate their category online.
+          </p>
+        </div>
+
+        {footerData.map(col => (
+          <div className="footer-col" key={col.title}>
+
+            <h4>{col.title}</h4>
+
+            <ul>
+              {col.links.map(link => (
+                <li key={link.name}>
+                  <Link to={link.path}>
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+          </div>
         ))}
+
       </div>
-    </div>
-  </footer>
-);
+
+      <div className="footer-bottom">
+
+        <p>© 2026 Tecloudex Digital. All rights reserved.</p>
+
+        <div className="footer-socials">
+          {['𝕏', 'in', 'ig', 'yt'].map(s => (
+            <a key={s} href="#" className="social-link">
+              {s}
+            </a>
+          ))}
+        </div>
+
+      </div>
+    </footer>
+  );
+};

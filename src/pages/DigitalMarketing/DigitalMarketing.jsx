@@ -18,9 +18,10 @@
 
 
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import { Footer } from '../../components/Sections/Sections';
-import "./DigitalMarketing.css";
+import "./Digitalmarketing.css";
 
 /* ─── SHARED UTILITIES ───────────────────────────────────────────────────── */
 function useInView(threshold = 0.12) {
@@ -173,7 +174,10 @@ function HeroSection() {
         </p>
         <div className="dm-hero-btns">
           <button className="dm-btn-primary dm-btn-lg">Launch My Campaign →</button>
-          <button className="dm-btn-outline dm-btn-lg">View Case Studies</button>
+          {/* <button className="dm-btn-outline dm-btn-lg">View Case Studies</button> */}
+          <Link to="/CaseStudies" className="dm-btn-outline dm-btn-lg">
+            View Case Studies
+          </Link>
         </div>
         <div className="dm-marquee-wrap">
           <div className="dm-marquee-track">
@@ -882,7 +886,11 @@ function CTASection() {
         <p className="dm-cta-sub">Join 350+ growth-stage brands that trust TECLOUDEX to manage their full digital marketing stack.</p>
         <div className="dm-cta-btns">
           <button className="dm-btn-primary dm-btn-xl">Start My Campaign →</button>
-          <button className="dm-btn-outline dm-btn-xl">Book a Free Audit</button>
+          {/* <button className="dm-btn-outline dm-btn-xl">Book a Free Audit</button> */}
+           <Link to="/contact" className="dm-btn-outline dm-btn-xl">
+            Book a Free Audit
+          </Link>
+          
         </div>
         <div className="dm-trust-badges">
           <span>✓ No Lock-In Contracts</span>
@@ -909,7 +917,7 @@ function CTASection() {
 //         {[
 //           {title:"SERVICES", links:["Performance Marketing","SEO & Content","Web Development","Brand Identity","AI & Automation","Analytics"]},
 //           {title:"COMPANY",  links:["About Us","Case Studies","Blog","Careers"]},
-//           {title:"CONTACT",  links:["hello@tecloudex.com","+91 98765 43210","Coimbatore, IN","Book a Call"]},
+//           {title:"CONTACT",  links:["hello@tecloudex.com","+91 98765 43210","Chennai, IN","Book a Call"]},
 //         ].map(col=>(
 //           <div className="dm-footer-col" key={col.title}>
 //             <div className="dm-footer-col-title">{col.title}</div>

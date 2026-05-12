@@ -18,6 +18,7 @@
 
 
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import "./ServicePage.css";
 import Navbar from "../../components/Navbar/Navbar";
 import { Footer } from '../../components/Sections/Sections';
@@ -118,8 +119,12 @@ function HeroSection() {
           so your brand grows faster, smarter, and without gaps.
         </p>
         <div className="hero-buttons">
-          <button className="btn-primary">Start Exploring ↓</button>
-          <button className="btn-outline">← Back to Home</button>
+          <a href="/ServiceTabs" className="btn-primary">Start Exploring ↓</a>
+          {/* <Link to="/" className="btn-outline">← Back to Home</Link> */}
+          {/* <button className="btn-outline">← Back to Home</button> */}
+          <Link to="/" className="btn-outline">
+            ← Back to Home
+          </Link>
         </div>
       </div>
       <div className="hero-right">
@@ -737,7 +742,7 @@ function Testimonials() {
 //           <div className="footer-col-title">CONTACT</div>
 //           <div className="footer-link">hello@tecloudex.com</div>
 //           <div className="footer-link">+91 98765 43210</div>
-//           <div className="footer-link">Coimbatore, IN</div>
+//           <div className="footer-link">Chennai, IN</div>
 //           <div className="footer-link">Book a Call</div>
 //         </div>
 //       </div>

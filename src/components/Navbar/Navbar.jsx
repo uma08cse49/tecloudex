@@ -111,12 +111,12 @@ const Navbar = () => {
           <Link to="/CaseStudies">Case Studies</Link>
         </li>
 
-        <li>
+        {/* <li>
           <Link to="/services">Blog</Link>
-        </li>
+        </li> */}
 
         <li>
-          <Link to="/services">Contact</Link>
+          <Link to="/contact">Contact</Link>
         </li>
 
         {/* SAME PAGE SCROLL LINKS */}
@@ -153,8 +153,10 @@ const Navbar = () => {
           <span>Available for projects</span>
         </div>
 
-        <a href="#contact" className="btn-primary">
+        {/* <a href="#contact" className="btn-primary"> */}
 
+        <Link to="/contact" className="btn-primary">
+        
           <span>Get Started</span>
 
           <svg
@@ -172,7 +174,8 @@ const Navbar = () => {
             />
           </svg>
 
-        </a>
+        {/* </a> */}
+        </Link>
 
       </div>
 

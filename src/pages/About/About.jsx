@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react"
+import { Link } from "react-router-dom";
 import "./About.css";
 import Navbar from "../../components/Navbar/Navbar";
 import { Footer } from '../../components/Sections/Sections';
@@ -98,7 +99,7 @@ function Hero() {
           relentless execution to turn ambitious brands into category leaders.
         </p>
         <div className="ab-hero-btns">
-          <button className="ab-btn-primary ab-btn-lg">Meet the Team ↓</button>
+          <a href="#team-section" className="ab-btn-primary ab-btn-lg">Meet the Team ↓</a>
           <button className="ab-btn-outline ab-btn-lg">See Our Work →</button>
         </div>
         <div className="ab-scroll-indicator">
@@ -123,7 +124,7 @@ function OriginStory() {
   const milestones = [
     {
       year: "2019",
-      text: "TECLOUDEX was founded in Coimbatore, Tamil Nadu by a team of performance marketers frustrated by agencies that prioritised retainers over results. We started with one client, one spreadsheet, and one obsession: making every rupee work harder.",
+      text: "TECLOUDEX was founded in Chennai, Tamil Nadu by a team of performance marketers frustrated by agencies that prioritised retainers over results. We started with one client, one spreadsheet, and one obsession: making every rupee work harder.",
     },
     {
       year: "2021",
@@ -147,7 +148,7 @@ function OriginStory() {
         <div className="ab-origin-left">
           <div className="ab-eyebrow">—— OUR STORY ——</div>
           <h2 className="ab-section-h2 ab-left">
-            Built in Coimbatore.<br />
+            Built in Chennai.<br />
             <span className="ab-accent-italic">Built for the world.</span>
           </h2>
           <div className="ab-timeline">
@@ -182,7 +183,7 @@ function OriginStory() {
               ))}
             </div>
             <div className="ab-progress-section">
-              <div className="ab-progress-label">FROM COIMBATORE TO GLOBAL</div>
+              <div className="ab-progress-label">FROM Chennai TO GLOBAL</div>
               <div className="ab-progress-track">
                 <div className={`ab-progress-fill${visible ? " ab-fill-animate" : ""}`} />
               </div>
@@ -190,7 +191,7 @@ function OriginStory() {
                 India · UAE · UK · US · SG · AU
               </div>
             </div>
-            <div className="ab-location-tag">📍 HQ: Coimbatore, IN 🇮🇳</div>
+            <div className="ab-location-tag">📍 HQ: Chennai, IN 🇮🇳</div>
           </div>
         </div>
       </div>
@@ -325,7 +326,7 @@ function MissionVisionValues() {
           <p className="ab-mvv-body">
             Our vision is a world where every growth-stage brand has access to the same calibre of
             marketing intelligence as the world's biggest companies. We're building the systems,
-            tools, and talent network to make that happen — from Coimbatore to every market on earth.
+            tools, and talent network to make that happen — from Chennai to every market on earth.
           </p>
         </div>
       </div>
@@ -372,7 +373,7 @@ function Team() {
   const initials = name => name.split(" ").map(w => w[0]).join("");
 
   return (
-    <section className="ab-section ab-team" ref={ref}>
+    <section id="team-section" className="ab-section ab-team" ref={ref}>
       <div className={`ab-section-inner${visible ? " ab-visible" : ""}`}>
         <div className="ab-eyebrow">—— THE PEOPLE ——</div>
         <h2 className="ab-section-h2">
@@ -433,7 +434,7 @@ function Culture() {
             Where great work <span className="ab-accent-italic">gets done.</span>
           </h2>
           <p className="ab-culture-body">
-            We're a remote-first team headquartered in Coimbatore, with team members across India,
+            We're a remote-first team headquartered in Chennai, with team members across India,
             UAE, and the UK. We don't measure hours — we measure outcomes. We don't do meetings for
             the sake of meetings. We build systems that work while we sleep.
           </p>
@@ -469,7 +470,7 @@ function Culture() {
                   </div>
                 ))}
               </div>
-              <div className="ab-day-footer">📍 HQ: Coimbatore, IN · 🌐 Remote: India · UAE · UK</div>
+              <div className="ab-day-footer">📍 HQ: Chennai, IN · 🌐 Remote: India · UAE · UK</div>
             </div>
           </div>
         </div>
@@ -717,7 +718,10 @@ function CTA() {
         </p>
         <div className="ab-cta-btns">
           <button className="ab-btn-primary ab-btn-xl">Start the Conversation →</button>
-          <button className="ab-btn-outline ab-btn-xl">See Our Services</button>
+          {/* <button className="ab-btn-outline ab-btn-xl">See Our Services</button> */}
+           <Link to="/services" className="btn-outline">
+            See Our Services
+          </Link>
         </div>
         <div className="ab-trust-line">
           <span>✓ 48-hr onboarding</span>
@@ -749,7 +753,7 @@ function CTA() {
 //         {[
 //           { title: "SERVICES", links: ["Performance Marketing", "SEO & Content", "Web Development", "Brand Identity", "AI & Automation", "Analytics"] },
 //           { title: "COMPANY", links: ["About Us", "Case Studies", "Blog", "Careers"] },
-//           { title: "CONTACT", links: ["hello@tecloudex.com", "+91 98765 43210", "Coimbatore, IN", "Book a Call"] },
+//           { title: "CONTACT", links: ["hello@tecloudex.com", "+91 98765 43210", "Chennai, IN", "Book a Call"] },
 //         ].map(col => (
 //           <div className="ab-footer-col" key={col.title}>
 //             <div className="ab-footer-col-title">{col.title}</div>
