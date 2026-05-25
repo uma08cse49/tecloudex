@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
+import FallingLetters from '../FallingLetters/FallingLetters';
 
 const WORDS = ['Growth.', 'Revenue.', 'Impact.', 'Results.'];
 const BAR_HEIGHTS = [35, 52, 45, 68, 55, 80, 60];
@@ -29,6 +30,7 @@ const Hero = () => {
 
   return (
     <section className="hero" id="home">
+      <FallingLetters />
       <div className="hero-grid" />
       <div className="hero-glow-1" />
       <div className="hero-glow-2" />

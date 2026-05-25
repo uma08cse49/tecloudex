@@ -5,12 +5,15 @@ import Hero from '../../components/Hero/Hero';
 import MarqueeSection from '../../components/Marquee/Marquee';
 import Services from '../../components/Services/Services';
 import { CaseStudies, NumbersSection, CTASection, Footer } from '../../components/Sections/Sections';
+import LinearBG from "../../components/LinearBG/LinearBG";
 
 const HomePage = () => {
   return (
     <>
       <Navbar />
-      <Hero />
+      {/* <LinearBG> */}
+        <Hero />
+      {/* </LinearBG> */}
       <MarqueeSection />
       <Services />
       <CaseStudies />

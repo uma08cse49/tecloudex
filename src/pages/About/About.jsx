@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "./About.css";
 import Navbar from "../../components/Navbar/Navbar";
 import { Footer } from '../../components/Sections/Sections';
+import LinearBG from "../../components/LinearBG/LinearBG";
+import AboutCinematicBackground from "../../components/AboutPageBackground/AboutCinematicBackground";
 
 /* ─── UTILITY HOOKS ──────────────────────────────────────────────────────── */
 function useInView(threshold = 0.1) {
@@ -74,7 +76,10 @@ function useCountUp(target, duration = 1800, active = false) {
 /* ─── HERO ───────────────────────────────────────────────────────────────── */
 function Hero() {
   return (
+    // <LinearBG>
     <section className="ab-hero">
+
+      <AboutCinematicBackground/>
       <div className="ab-hero-mesh">
         <div className="ab-mesh-glow ab-glow-1" />
         <div className="ab-mesh-glow ab-glow-2" />
@@ -107,6 +112,7 @@ function Hero() {
         </div>
       </div>
     </section>
+    // </LinearBG>
   );
 }
 

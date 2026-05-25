@@ -1,0 +1,35 @@
+.falling-letters-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 78%,
+    transparent 100%
+  );
+}
+
+.glyph {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: monospace;
+  font-weight: 600;
+  line-height: 1;
+  user-select: none;
+  will-change: transform;
+}
+
+.glyph-cyan {
+  color: rgba(186, 230, 253, 0.9);
+  text-shadow: 0 0 12px rgba(125, 211, 252, 0.35);
+}
+
+.glyph-violet {
+  color: rgba(221, 214, 254, 0.9);
+  text-shadow: 0 0 12px rgba(196, 181, 253, 0.35);
+}

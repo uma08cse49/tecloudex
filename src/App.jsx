@@ -152,9 +152,15 @@ import DigitalMarketing from './pages/DigitalMarketing/DigitalMarketing';
 import About from './pages/About/About';
 import CaseStudies from './pages/CaseStudies/CaseStudies';
 import Contact from './pages/Contact/Contact';
+import TeCloudexBG from './components/TecloudexBg/TecloudexBg';
 
 function App() {
   return (
+    // <>
+
+    //   {/* Global Background */}
+    //   <TeCloudexBG />
+
     <Routes>
 
       <Route path="/" element={<HomePage />} />
@@ -170,6 +176,8 @@ function App() {
       <Route path="/Contact" element={<Contact />} />
 
     </Routes>
+
+  // </>
   );
 }
 

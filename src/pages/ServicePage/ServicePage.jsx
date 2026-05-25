@@ -22,6 +22,8 @@ import { Link } from "react-router-dom";
 import "./ServicePage.css";
 import Navbar from "../../components/Navbar/Navbar";
 import { Footer } from '../../components/Sections/Sections';
+import LinearBG from "../../components/LinearBG/LinearBG";
+import  HeroCinematicBackground2 from "../../components/FallingLetters2/FallingLetters2";
 
 // // ─── NAVBAR ───────────────────────────────────────────────────────────────────
 // function Navbar() {
@@ -58,18 +60,217 @@ import { Footer } from '../../components/Sections/Sections';
 
 
 // ─── ORBITAL DIAGRAM ──────────────────────────────────────────────────────────
+// function OrbitalDiagram() {
+//   const nodes = [
+//     { label: "PPC",   color: "#4361ee", x: 72, y: 22 },
+//     { label: "SEO",   color: "#2dc653", x: 88, y: 48 },
+//     { label: "WEB",   color: "#f4a23a", x: 80, y: 78 },
+//     { label: "BRAND", color: "#d63af9", x: 50, y: 92 },
+//     { label: "A.I.",  color: "#00d4ff", x: 20, y: 72 },
+//     { label: "DATA",  color: "#8b5cf6", x: 16, y: 40 },
+//   ];
+
+//   return (
+//     <div className="orbital-wrapper">
+//       <div className="orbital-center">
+//         <div className="center-ring">
+//           <div className="center-text">
+//             <span className="center-name">TECLOUDEX</span>
+//             <span className="center-sub">CORE</span>
+//           </div>
+//         </div>
+//       </div>
+//       {nodes.map((n, i) => (
+//         <div
+//           key={n.label}
+//           className="orbital-node"
+//           style={{
+//             left: `${n.x}%`,
+//             top: `${n.y}%`,
+//             "--node-color": n.color,
+//             animationDelay: `${i * 0.4}s`,
+//           }}
+//         >
+//           <div className="node-ring">
+//             <span className="node-label">{n.label}</span>
+//           </div>
+//           <svg className="connector" viewBox="0 0 100 100" preserveAspectRatio="none">
+//             <line x1="50" y1="50" x2="50" y2="50" className="connector-line" />
+//           </svg>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
+
+const nodes = [
+  { label: "PPC",   color: "#4361ee" },
+  { label: "SEO",   color: "#2dc653" },
+  { label: "WEB",   color: "#f4a23a" },
+  { label: "BRAND", color: "#d63af9" },
+  { label: "A.I.",  color: "#00d4ff" },
+  { label: "DATA",  color: "#8b5cf6" },
+];
+
+const CX = 260, CY = 260, RADIUS = 180;
+const N  = nodes.length;
+const NS = "http://www.w3.org/2000/svg";
+
+function getPositions() {
+  return nodes.map((_, i) => {
+    const angle = (i * 2 * Math.PI) / N - Math.PI / 2;
+    return {
+      x: CX + RADIUS * Math.cos(angle),
+      y: CY + RADIUS * Math.sin(angle),
+    };
+  });
+}
+
+function lerp(a, b, t)    { return a + (b - a) * t; }
+function easeInOut(t)      { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }
+
 function OrbitalDiagram() {
-  const nodes = [
-    { label: "PPC",   color: "#4361ee", x: 72, y: 22 },
-    { label: "SEO",   color: "#2dc653", x: 88, y: 48 },
-    { label: "WEB",   color: "#f4a23a", x: 80, y: 78 },
-    { label: "BRAND", color: "#d63af9", x: 50, y: 92 },
-    { label: "A.I.",  color: "#00d4ff", x: 20, y: 72 },
-    { label: "DATA",  color: "#8b5cf6", x: 16, y: 40 },
-  ];
+  const svgRef = useRef(null);
+  const rafRef = useRef(null);
+  const positions = getPositions();
+
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    svg.innerHTML = "";
+
+    // ── Defs: glow filters ──
+    const defs = document.createElementNS(NS, "defs");
+    nodes.forEach((n, i) => {
+      const filter = document.createElementNS(NS, "filter");
+      filter.setAttribute("id", `orbital-glow-${i}`);
+      filter.setAttribute("x", "-100%"); filter.setAttribute("y", "-100%");
+      filter.setAttribute("width", "300%"); filter.setAttribute("height", "300%");
+      const blur = document.createElementNS(NS, "feGaussianBlur");
+      blur.setAttribute("stdDeviation", "4");
+      filter.appendChild(blur);
+      defs.appendChild(filter);
+    });
+    svg.appendChild(defs);
+
+    // ── Outer dashed orbit circle ──
+    const outerCircle = document.createElementNS(NS, "circle");
+    outerCircle.setAttribute("cx", CX);
+    outerCircle.setAttribute("cy", CY);
+    outerCircle.setAttribute("r", RADIUS);
+    outerCircle.setAttribute("fill", "none");
+    outerCircle.setAttribute("stroke", "rgba(255,255,255,0.04)");
+    outerCircle.setAttribute("stroke-width", "1");
+    outerCircle.setAttribute("stroke-dasharray", "3 8");
+    svg.appendChild(outerCircle);
+
+    // ── Hexagon outline connecting all nodes ──
+    const hexPoly = document.createElementNS(NS, "polygon");
+    hexPoly.setAttribute("points", positions.map(p => `${p.x},${p.y}`).join(" "));
+    hexPoly.setAttribute("fill", "none");
+    hexPoly.setAttribute("stroke", "rgba(255,255,255,0.07)");
+    hexPoly.setAttribute("stroke-width", "1");
+    hexPoly.setAttribute("stroke-dasharray", "4 6");
+    svg.appendChild(hexPoly);
+
+    // ── Spoke lines: center → each node ──
+    positions.forEach((p) => {
+      const line = document.createElementNS(NS, "line");
+      line.setAttribute("x1", CX); line.setAttribute("y1", CY);
+      line.setAttribute("x2", p.x); line.setAttribute("y2", p.y);
+      line.setAttribute("stroke", "rgba(255,255,255,0.07)");
+      line.setAttribute("stroke-width", "1");
+      line.setAttribute("stroke-dasharray", "4 7");
+      svg.appendChild(line);
+    });
+
+    // ── Spoke dots (one per node, ping-pong along spoke) ──
+    const spokeDots = nodes.map((n, i) => {
+      const g = document.createElementNS(NS, "g");
+
+      const halo = document.createElementNS(NS, "circle");
+      halo.setAttribute("r", "5");
+      halo.setAttribute("fill", n.color);
+      halo.setAttribute("opacity", "0.2");
+      halo.setAttribute("filter", `url(#orbital-glow-${i})`);
+
+      const dot = document.createElementNS(NS, "circle");
+      dot.setAttribute("r", "2.8");
+      dot.setAttribute("fill", n.color);
+      dot.setAttribute("opacity", "0.9");
+
+      g.appendChild(halo);
+      g.appendChild(dot);
+      svg.appendChild(g);
+      return { g, dot, p: positions[i] };
+    });
+
+    // ── Hex perimeter traveller dot ──
+    const hexG = document.createElementNS(NS, "g");
+    const hexHalo = document.createElementNS(NS, "circle");
+    hexHalo.setAttribute("r", "5");
+    hexHalo.setAttribute("fill", "#fff");
+    hexHalo.setAttribute("opacity", "0.12");
+    const hexDot = document.createElementNS(NS, "circle");
+    hexDot.setAttribute("r", "2.5");
+    hexDot.setAttribute("fill", "#fff");
+    hexDot.setAttribute("opacity", "0.45");
+    hexG.appendChild(hexHalo);
+    hexG.appendChild(hexDot);
+    svg.appendChild(hexG);
+
+    // ── Animation loop ──
+    const SPOKE_PERIOD = 2200;
+    const HEX_PERIOD   = 8000;
+    const STAGGER      = 600;
+    let start = null;
+
+    function animate(ts) {
+      if (!start) start = ts;
+      const elapsed = ts - start;
+
+      // Spoke dots: ping-pong center ↔ node
+      spokeDots.forEach(({ g, dot, p }, i) => {
+        const offset = i * STAGGER;
+        const t = ((elapsed + HEX_PERIOD - offset) % (SPOKE_PERIOD * 2)) / (SPOKE_PERIOD * 2);
+        const progress = t < 0.5 ? easeInOut(t * 2) : easeInOut((1 - t) * 2);
+        const x = lerp(CX, p.x, progress);
+        const y = lerp(CY, p.y, progress);
+        g.setAttribute("transform", `translate(${x},${y})`);
+        const op = (0.55 + 0.45 * Math.sin(elapsed / 280 + i)).toFixed(2);
+        dot.setAttribute("opacity", op);
+      });
+
+      // Hex perimeter dot: travels around hexagon edge
+      const hexT  = (elapsed % HEX_PERIOD) / HEX_PERIOD;
+      const edge  = hexT * N;
+      const ei    = Math.floor(edge) % N;
+      const ef    = edge - Math.floor(edge);
+      const from  = positions[ei];
+      const to    = positions[(ei + 1) % N];
+      hexG.setAttribute(
+        "transform",
+        `translate(${lerp(from.x, to.x, ef)},${lerp(from.y, to.y, ef)})`
+      );
+
+      rafRef.current = requestAnimationFrame(animate);
+    }
+
+    rafRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, []);
 
   return (
     <div className="orbital-wrapper">
+
+      {/* SVG: connectors + animated dots */}
+      <svg
+        ref={svgRef}
+        className="orbital-svg"
+        viewBox="0 0 520 520"
+      />
+
+      {/* Center */}
       <div className="orbital-center">
         <div className="center-ring">
           <div className="center-text">
@@ -78,33 +279,37 @@ function OrbitalDiagram() {
           </div>
         </div>
       </div>
-      {nodes.map((n, i) => (
-        <div
-          key={n.label}
-          className="orbital-node"
-          style={{
-            left: `${n.x}%`,
-            top: `${n.y}%`,
-            "--node-color": n.color,
-            animationDelay: `${i * 0.4}s`,
-          }}
-        >
-          <div className="node-ring">
-            <span className="node-label">{n.label}</span>
+
+      {/* Orbital nodes */}
+      {nodes.map((n, i) => {
+        const p = positions[i];
+        return (
+          <div
+            key={n.label}
+            className="orbital-node"
+            style={{
+              left: p.x,
+              top:  p.y,
+              "--node-color": n.color,
+            }}
+          >
+            <div className="node-ring">
+              <span className="node-label">{n.label}</span>
+            </div>
           </div>
-          <svg className="connector" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <line x1="50" y1="50" x2="50" y2="50" className="connector-line" />
-          </svg>
-        </div>
-      ))}
+        );
+      })}
+
     </div>
   );
 }
+
 
 // ─── HERO ─────────────────────────────────────────────────────────────────────
 function HeroSection() {
   return (
     <section className="hero-section">
+      <HeroCinematicBackground2 />
       <div className="hero-left">
         <div className="hero-badge">
           <span className="badge-icon">⊕</span>
