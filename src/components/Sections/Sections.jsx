@@ -182,7 +182,7 @@ export const CTASection = () => {
 //             links: [
 //                 'Performance Marketing', 'SEO & Content', 'Web Development', 'Brand Identity', 'AI & Automation', 'Analytics'] },
 //         { title: 'Company', links: ['About Us', 'Case Studies', 'Blog & Insights', 'Careers', 'Press'] },
-//         { title: 'Contact', links: ['hello@tecloudex.com', '+91 98765 43210', 'Chennai, IN', 'Book a Call'] },
+//         { title: 'Contact', links: ['hello@tecloudex.com', '+91950052027', 'Chennai, IN', 'Book a Call'] },
 //       ].map(col => (
 //         <div className="footer-col" key={col.title}>
 //           <h4>{col.title}</h4>
@@ -232,7 +232,7 @@ export const Footer = () => {
       title: 'Contact',
       links: [
         { name: 'hello@tecloudex.com', path: '#' },
-        { name: '+91 98765 43210', path: '#' },
+        { name: '+91950052027', path: '#' },
         { name: 'Chennai, IN', path: '#' },
         { name: 'Book a Call', path: '/contact' },
       ]

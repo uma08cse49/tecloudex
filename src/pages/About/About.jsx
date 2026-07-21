@@ -759,7 +759,7 @@ function CTA() {
 //         {[
 //           { title: "SERVICES", links: ["Performance Marketing", "SEO & Content", "Web Development", "Brand Identity", "AI & Automation", "Analytics"] },
 //           { title: "COMPANY", links: ["About Us", "Case Studies", "Blog", "Careers"] },
-//           { title: "CONTACT", links: ["hello@tecloudex.com", "+91 98765 43210", "Chennai, IN", "Book a Call"] },
+//           { title: "CONTACT", links: ["hello@tecloudex.com", "+91950052027", "Chennai, IN", "Book a Call"] },
 //         ].map(col => (
 //           <div className="ab-footer-col" key={col.title}>
 //             <div className="ab-footer-col-title">{col.title}</div>

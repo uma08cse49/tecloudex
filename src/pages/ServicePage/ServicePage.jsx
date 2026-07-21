@@ -946,7 +946,7 @@ function Testimonials() {
 //         <div className="footer-col">
 //           <div className="footer-col-title">CONTACT</div>
 //           <div className="footer-link">hello@tecloudex.com</div>
-//           <div className="footer-link">+91 98765 43210</div>
+//           <div className="footer-link">+91950052027</div>
 //           <div className="footer-link">Chennai, IN</div>
 //           <div className="footer-link">Book a Call</div>
 //         </div>

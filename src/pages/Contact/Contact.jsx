@@ -256,7 +256,7 @@ function Hero() {
 
   const quickLinks = [
     { icon: "✉️", text: "hello@tecloudex.com", action: () => copy("hello@tecloudex.com") },
-    { icon: "📞", text: "+91 98765 43210",   action: () => copy("+91 98765 43210") },
+    { icon: "📞", text: "+91950052027",   action: () => copy("+91950052027") },
     { icon: "📍", text: "Chennai, IN",    action: null },
   ];
 
@@ -357,7 +357,7 @@ function ContactMethods() {
               on WhatsApp anytime.
             </p>
             <div className="ct-method-value" style={{ color: "var(--ct-cyan)" }}>
-              +91 98765 43210
+              +91950052027
             </div>
             <div className="ct-response-badge ct-badge-cyan">⚡ Instant on WhatsApp</div>
             <div className="ct-method-btn-stack">
@@ -506,7 +506,7 @@ function FAQ() {
 //           },
 //           {
 //             title: "CONTACT",
-//             links: ["hello@nexvora.com","+91 98765 43210","Chennai, IN","Book a Call"],
+//             links: ["hello@nexvora.com","+91950052027","Chennai, IN","Book a Call"],
 //           },
 //         ].map(col => (
 //           <div className="ct-footer-col" key={col.title}>
