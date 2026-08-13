@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import "./TeCloudexBG.css";
+import "./TecloudexBg.css";
 
 /* ─── PARTICLE CANVAS ─────────────────────────────────────────────────────── */
 function ParticleCanvas() {

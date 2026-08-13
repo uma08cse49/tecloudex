@@ -324,7 +324,15 @@ function HeroSection() {
           so your brand grows faster, smarter, and without gaps.
         </p>
         <div className="hero-buttons">
-          <a href="/ServiceTabs" className="btn-primary">Start Exploring ↓</a>
+          <button
+            type="button"
+            className="btn-primary"
+            onClick={() =>
+              document.getElementById("service-01")?.scrollIntoView({ behavior: "smooth", block: "start" })
+            }
+          >
+            Start Exploring ↓
+          </button>
           {/* <Link to="/" className="btn-outline">← Back to Home</Link> */}
           {/* <button className="btn-outline">← Back to Home</button> */}
           <Link to="/" className="btn-outline">
@@ -355,7 +363,12 @@ function ServiceTabs({ active, setActive }) {
         <button
           key={t.label}
           className={`tab-btn${active === i ? " tab-active" : ""}`}
-          onClick={() => setActive(i)}
+          onClick={() => {
+            setActive(i);
+            document
+              .getElementById(`service-${String(i + 1).padStart(2, "0")}`)
+              ?.scrollIntoView({ behavior: "smooth", block: "start" });
+          }}
           style={{ "--tab-color": t.color }}
         >
           <span className="tab-dot" style={{ background: t.color }}></span>

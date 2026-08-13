@@ -1,5 +1,5 @@
 /* ─── IMPORTS ────────────────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;0,800;0,900;1,700;1,800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* ─── VARIABLES ──────────────────────────────────────────────────────────── */
 :root {
@@ -18,7 +18,7 @@
   --ct-text:    #e8eaf6;
   --ct-muted:   #6b7280;
   --ct-dim:     #9ca3af;
-  --ct-serif:   'Playfair Display', Georgia, serif;
+  --ct-serif:   'Poppins', sans-serif;
   --ct-sans:    'DM Sans', system-ui, sans-serif;
   --ct-mono:    'JetBrains Mono', monospace;
 }

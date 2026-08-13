@@ -257,7 +257,7 @@ export const Footer = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontFamily: 'Syne, sans-serif',
+              fontFamily: 'Poppins, sans-serif',
               fontWeight: 800,
               color: 'white',
               fontSize: '1rem'
@@ -266,7 +266,7 @@ export const Footer = () => {
             </div>
 
             <span style={{
-              fontFamily: 'Syne, sans-serif',
+              fontFamily: 'Poppins, sans-serif',
               fontWeight: 800,
               fontSize: '1.1rem',
               color: 'var(--text-primary)'

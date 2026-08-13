@@ -1,5 +1,5 @@
 /* ─── IMPORTS ────────────────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;0,800;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* ─── VARIABLES ──────────────────────────────────────────────────────────── */
 :root {
@@ -19,7 +19,7 @@
   --text:        #e8eaf6;
   --text-muted:  #6b7280;
   --text-dim:    #9ca3af;
-  --font-serif:  'Playfair Display', Georgia, serif;
+  --font-serif:  'Poppins', sans-serif;
   --font-sans:   'DM Sans', system-ui, sans-serif;
   --font-mono:   'JetBrains Mono', monospace;
 }
@@ -379,6 +379,7 @@ ul { list-style: none; }
   border-bottom: 1px solid var(--border);
   opacity: 0; transform: translateY(40px);
   transition: opacity 0.7s ease, transform 0.7s ease;
+  scroll-margin-top: 140px;
 }
 .service-section.in-view { opacity: 1; transform: translateY(0); }
 .service-section:nth-child(even) { background: rgba(255,255,255,0.01); }
